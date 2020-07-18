@@ -36,7 +36,7 @@ const fetchFromCategory = (categoryIdx) => new Promise(async (resolve, reject) =
 
     const fileName = categories[categoryIdx].title.replace(/[\(\)]/gi, '').replace(/\s/gi, '_') + '.json';
     const filePath = path.resolve(__dirname, `results/${fileName.toLowerCase()}`);
-    fs.writeFileSync(filePath, JSON.stringify(categories));
+    fs.writeFileSync(filePath, JSON.stringify(categories[categoryIdx]));
 
     await page.close();
     resolve(true);
